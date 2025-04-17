@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Circular Progress</title>
+		<script defer type="module" src="circular-progress.js"></script>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<p class="text">Progress</p>
+			<div class="app">
+				<div class="progress container">
+					<circular-progress></circular-progress>
+				</div>
+
+				<div class="progress circle-controls">
+					<label>
+						<input
+							id="progress-value"
+							type="number"
+							min="0"
+							max="100"
+							value="0"
+							oninput="this.value = Math.max(0, Math.min(100,
+						this.value))"
+						/>Value</label
+					>
+					<label>
+						<input type="checkbox" class="checkbox" id="toggle-animation" />
+						<div class="switch"></div>
+						<span class="slider">Animate</span>
+					</label>
+					<label>
+						<input type="checkbox" class="checkbox" id="toggle-hidden" />
+						<div class="switch"></div>
+						<span class="slider">Hide</span>
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<script defer src="main.js"></script>
+	</body>
+</html>

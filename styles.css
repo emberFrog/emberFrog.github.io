@@ -1,0 +1,176 @@
+* {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+}
+
+body {
+	background-color: #ebf1f6;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+#progress-bar {
+	transition: stroke-dashoffset 0.5s ease-in-out;
+}
+
+#rotating-bar {
+	transition: transform 0.5s ease-in-out;
+}
+
+@keyframes rotate {
+	0%,
+	35% {
+		transform: rotate(270deg);
+	}
+	100% {
+		transform: rotate(630deg);
+	}
+}
+
+.rotating {
+	animation: rotate 4s linear infinite;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.wrapper {
+	background-color: #fff;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+p {
+	margin: 0;
+}
+
+.app {
+	display: flex;
+	gap: 70px;
+	justify-content: center;
+	align-items: center;
+}
+
+.progress {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container {
+	width: 200px;
+	height: 200px;
+}
+
+.circle-controls {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: 20px;
+}
+
+label {
+	display: inline-flex;
+	align-items: center;
+	gap: 20px;
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	.wrapper {
+		height: 568px;
+		width: 320px;
+		gap: 70px;
+	}
+	.app {
+		flex-direction: column;
+	}
+}
+
+@media (min-width: 769px) {
+	.wrapper {
+		height: 320px;
+		width: 568px;
+		gap: 40px;
+	}
+	.app {
+		flex-direction: row;
+	}
+}
+
+#progress-value {
+	height: 22px;
+	width: 40px;
+	border-radius: 22px;
+	text-align: center;
+	justify-content: center;
+	border: 1px solid black;
+
+	appearance: textfield;
+	-moz-appearance: textfield;
+}
+
+#progress-value::-webkit-inner-spin-button,
+#progress-value::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+#progress-value:focus {
+	outline: none !important;
+	border: 1px solid #005bff;
+}
+
+.switch {
+	display: inline-block;
+	background: #ebf1f6;
+	height: 26px;
+	width: 46px;
+	border-radius: 22px;
+	position: relative;
+	vertical-align: middle;
+	transition: background 0.25s;
+}
+
+.switch:before,
+.toggle-switch:after {
+	content: '';
+}
+
+.switch:before {
+	display: block;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	transition: left 0.25s;
+	background: #fff;
+}
+
+.checkbox:checked + .switch {
+	background: #005bff;
+}
+
+.checkbox:checked + .switch:before {
+	left: 24px;
+}
+
+.checkbox {
+	position: absolute;
+	visibility: hidden;
+}
+
+.slider {
+	margin-left: 5px;
+	position: relative;
+	top: 2px;
+}
